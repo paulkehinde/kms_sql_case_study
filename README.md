@@ -118,9 +118,9 @@ ORDER BY Total_Sales ASC;
 <img width="435" height="351" alt="Screenshot 2026-04-05 223445" src="https://github.com/user-attachments/assets/62a6199f-b058-4b51-8945-f07dc8be4966" /> 
 
 ## Recommendation:
-Give discounts or rewards – Offer special deals or points to keep customers coming back.
-Focus on the right customers – Run ads or messages for people who are most likely to buy.
-Connect better with customers – Talk to them more and make them feel valued.
+- Give discounts or rewards – Offer special deals or points to keep customers coming back.
+- Focus on the right customers – Run ads or messages for people who are most likely to buy.
+- Connect better with customers – Talk to them more and make them feel valued.
 
 
 5. Shipping Method with Highest Cost
