@@ -2,8 +2,13 @@
 A SQL-based data analysis project on the KMS dataset, uncovering insights into sales, customers, and shipping performance to support business decision-making.
 
 ## Objective
+1. Identify the top-selling product category
+2. Assess regional performance
+3. Evaluate shipping efficiency
+4. Analyze customer value
+5. Enhance customer engagement
 
-To identify the product category with the highest total sales.
+
 
 
 ##  Project Overview
@@ -46,16 +51,20 @@ The dataset contains:
 
  ## Analysis & SQL Queries
 
- 1. Product Category with Highest Sales  
+ ## Case Scenario I
+
+ 1. Product Category with Highest Sales
+     
 SELECT TOP 1 
 Product_Category,     
 SUM(Sales) AS Total_Sales   
 FROM dbo.kmscasestudy    
 GROUP BY Product_Category    
 ORDER BY Total_Sales DESC;
-   <img width="409" height="148" alt="Screenshot 2026-04-05 212039" src="https://github.com/user-attachments/assets/796a3040-6765-4027-af06-4b4f8903e5f4" />  
 
-The Technology category ranks as the top-performing category, with total sales of 5,984,281,820,000,000. This highlights its strong contribution to overall business revenue.
+ <img width="371" height="85" alt="Screenshot 2026-04-06 084457" src="https://github.com/user-attachments/assets/7ab8ff81-1b0e-4ed0-88cc-07fdc1ac26c0" />
+
+The Technology category ranks as the top-performing category, with total sales of $5,984,281,820,000,000. This highlights its strong contribution to overall business revenue.
 
 2. Top 3 and Bottom 3 Regions by Sales
 
@@ -65,6 +74,7 @@ SUM(Sales) AS Total_Sales
 FROM dbo.kmscasestudy  
 GROUP BY Region  
 ORDER BY Total_Sales DESC;  
+
 <img width="341" height="154" alt="Screenshot 2026-04-05 213525" src="https://github.com/user-attachments/assets/d34b0250-e5f4-4df6-a641-3ece9a612ef4" />  
 
 
@@ -74,9 +84,12 @@ Region,
 SUM(Sales) AS Total_Sales  
 FROM dbo.kmscasestudy  
 GROUP BY Region  
-ORDER BY Total_Sales ASC;  
-<img width="417" height="160" alt="Screenshot 2026-04-05 213935" src="https://github.com/user-attachments/assets/b20ea98b-cc39-4175-8c06-998a01b51374" />
-## Insight
+ORDER BY Total_Sales ASC;    
+
+<img width="417" height="160" alt="Screenshot 2026-04-05 213935" src="https://github.com/user-attachments/assets/b20ea98b-cc39-4175-8c06-998a01b51374" />  
+
+
+## Insight:
 - The top 3 regions (East, Ontario, and Prairie) bring in most of the revenue, showing strong sales performances in these areas.
 
 - The bottom 3 regions (Nunavut, Northwest Territories, and Yukon) make the least sales. Suggesting potential opportunities to improve sales in these areas with marketing or promotions.
@@ -88,6 +101,7 @@ SUM(Sales) AS Total_Appliance_Sales
 FROM dbo.kmscasestudy  
 WHERE Product_Sub_Category = 'Appliances'  
 AND Province = 'Ontario';  
+
 <img width="288" height="111" alt="Screenshot 2026-04-05 220423" src="https://github.com/user-attachments/assets/2a0cee46-b2a0-461f-8806-baeec0363b6c" />
 
 The Appliances category has made $202,346.84 in sales, showing how much revenue this type of product has generated from Ontario.
@@ -100,6 +114,7 @@ SUM(Sales) AS Total_Sales
 FROM dbo.kmscasestudy  
 GROUP BY Customer_Name  
 ORDER BY Total_Sales ASC;  
+
 <img width="435" height="351" alt="Screenshot 2026-04-05 223445" src="https://github.com/user-attachments/assets/62a6199f-b058-4b51-8945-f07dc8be4966" /> 
 
 ## Recommendation:
@@ -132,11 +147,12 @@ SUM(Sales) AS Total_Sales
 FROM dbo.kmscasestudy  
 GROUP BY Customer_Name, Product_Category  
 ORDER BY Total_Sales DESC;  
+
 <img width="515" height="311" alt="Screenshot 2026-04-05 231114" src="https://github.com/user-attachments/assets/6d71a537-c3a5-4ea9-9f3d-736da859b3d4" />  
 
-## Insight 
+## Insight: 
 - The most valuable customers are those who generate the highest sales and purchase frequently. They mainly buy top-selling products, which drive most of the company’s revenue.
-= Customer buying patterns reveal the products that perform best. By targeting these high-value customers and maintaining the availability of their preferred products, the company can boost revenue, strengthen customer loyalty, and support business growth.
+- Customer buying patterns reveal the products that perform best. By targeting these high-value customers and maintaining the availability of their preferred products, the company can boost revenue, strengthen customer loyalty, and support business growth.
 
 7. Small Business Customer with Highest Sales  
 
@@ -147,6 +163,7 @@ FROM dbo.kmscasestudy
 WHERE Customer_Segment = 'Small Business'  
 GROUP BY Customer_Name   
 ORDER BY Total_Sales DESC;  
+
 <img width="352" height="93" alt="Screenshot 2026-04-05 234148" src="https://github.com/user-attachments/assets/c8e7c5f9-fd96-4cf2-886c-686c23039b79" />
 
 Dennis Kane ranks as the highest-performing small business customer, generating total sales of $759,675,905,000,000. This highlights his significant contribution to the company revenue.
@@ -176,9 +193,10 @@ FROM dbo.kmscasestudy
 WHERE Customer_Segment = 'Consumer'  
 GROUP BY Customer_Name  
 ORDER BY Total_Profit DESC;  
+
 <img width="360" height="94" alt="Screenshot 2026-04-06 005718" src="https://github.com/user-attachments/assets/dc1f3ffb-140e-4bec-ad33-34f9045ee6f2" />
 
-Emily Phan is the top consumer customer, with total sales of $340,054,400,000,000, making her a key contributor to the company’s revenue.
+Emily Phan is the top consumer customer, with total profit of $340,054,400,000,000, making her a key contributor to the company’s revenue.
 
 10. Customers Who Returned Items  
 
@@ -188,8 +206,9 @@ Customer_Segment
 FROM dbo.kmscasestudy  
 WHERE  Order_Status = 'Returned';   
 
-<img width="356" height="308" alt="Screenshot 2026-04-06 010753" src="https://github.com/user-attachments/assets/45ea2fad-5fa4-4bfd-bcbc-dfaa9cbc3a62" />
- ## Insight
+<img width="356" height="308" alt="Screenshot 2026-04-06 010753" src="https://github.com/user-attachments/assets/45ea2fad-5fa4-4bfd-bcbc-dfaa9cbc3a62" />  
+
+ ## Insight:
 Some customers returned items, which may indicate issues with product quality, delivery, or customer satisfaction. Analyzing these returns helps the company identify patterns, such as:   
 
 - Products frequently returned – shows which items may need quality checks or better descriptions.
@@ -208,6 +227,7 @@ SUM(Shipping_Cost) AS Total_Shipping_Cost
 FROM dbo.kmscasestudy  
 GROUP BY Order_Priority, Ship_Mode  
 ORDER BY Order_Priority, Total_Shipping_Cost DESC;   
+
 <img width="537" height="326" alt="Screenshot 2026-04-06 011739" src="https://github.com/user-attachments/assets/d83edfd7-026a-480a-8140-7981ca3c2cf8" />
 <img width="549" height="122" alt="Screenshot 2026-04-06 011818" src="https://github.com/user-attachments/assets/190e2c53-9036-4cfe-8c2a-c2dc1e23094c" />
 
@@ -220,6 +240,24 @@ Studying this helps the company
 - Improve customer satisfaction – balance cost with delivery time based on customer needs.
 
 By understanding shipping cost patterns relative to order priority, the company can control logistics expenses while meeting customer expectations efficiently.
+
+## Key Insights
+- Top product categories generate most of the sales revenue
+- Some regions perform poorly and need more attention or improvement strategies
+- Shipping costs can be reduced to improve overall profit
+- A small number of customers bring in most of the revenue (80/20 rule)
+
+  ## Recommendations
+
+- To drive business growth, the company should concentrate its marketing efforts on top-performing product categories, as they contribute the most to overall revenue and profitability.
+- Targeted strategies should be implemented to improve performance in underperforming regions, including localized marketing, improved distribution channels, and stronger customer engagement initiatives.
+- The company should improve its choice of shipping methods by balancing cost and delivery speed, helping to reduce expenses while maintaining customer satisfaction.
+- Retaining high-value customers is crucial, as they contribute a large portion of revenue. Implementing loyalty programs, personalized offers, and excellent service can help strengthen these relationships.
+- Additionally, the company should re-engaging low-spending customers through promotions, discounts, and targeted communication can increase their purchasing activity and overall contribution
+
+## Conclusion
+This analysis demonstrates how SQL can be effectively used to transform raw data into actionable business insights. These insights support strategic decision-making across key areas such as sales performance, logistics optimization, and customer management.
+
 
 
 
